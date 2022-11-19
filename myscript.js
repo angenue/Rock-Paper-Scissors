@@ -9,25 +9,22 @@ function getComputerChoice(){
 
     function playRound(playerSelection, computerSelection) {
         playerSelection = playerSelection.toLowerCase();
-        let winOrLose = '';
 
         if (playerSelection === computerSelection) {
-            winOrLose = "It is a Tie!"
+            return -1;
         }
-        else if (playerSelection == "rock" && computerSelection == "Paper") {
-            winOrLose = "You Lose! Paper beats Rock"
+        else if (playerSelection === "rock" && computerSelection == "Paper") {
+            return 0;
         }
-        else if (playerSelection == "paper" &&computerSelection == "Scissors"){
-            winOrLose = "You Lose! Scissors beats Paper"
+        else if (playerSelection === "paper" &&computerSelection == "Scissors"){
+            return 0;
         }
-        else if (playerSelection == "scissors" && computerSelection == "Rock"){
-            winOrLose = "You Lose! Rock beats Scissors"
+        else if (playerSelection === "scissors" && computerSelection == "Rock"){
+            return 0;
         }
         else {
-            winOrLose = "You Won!"
+            return 1;
         }
-
-        return winOrLose;
     }
 
     function game() {
@@ -38,30 +35,33 @@ function getComputerChoice(){
             let playerSelection = prompt("Rock, Paper, or Scissors?")
             const computerSelection = getComputerChoice();
 
-            playRound(playerSelection, computerSelection)
+            let results = playRound(playerSelection, computerSelection);
+            results;
 
-            if (playRound(playerSelection, computerSelection) === "It is a Tie!") {
-                playerWins++;
+            if (results === 0) {
+                console.log("You Lost This Round");
                 computerWins++;
             }
-            else if (playRound(playerSelection, computerSelection) === "You Won!") {
+            else if (results === 1) {
+                console.log("You Won This Round");
                 playerWins++;
             }
             else {
-                computerWins++;
+                console.log("It is a Tie!");
             }
 
-            console.log("Round " + i + `|| Player Points: ${playerWins} || Computer Points: ${computerWins}`);
+            console.log(`Round ${i} || Player Points: ${playerWins} || Computer Points: ${computerWins}`);
+
          }
 
-         if (playerWins == computerWins){
-            console.log("It is a Tie!")
+         if (playerWins > computerWins) {
+            console.log("You Won The Game!")
          }
-         else if (playerWins > computerWins) {
-            console.log("You Won!")
+         else if (playerWins < computerWins){
+            console.log("You Lost The Game!")
          }
          else {
-            console.log("You Lost!")
+            console.log("It is a Tie!")
          }
     }
 
