@@ -30,8 +30,41 @@ function getComputerChoice(){
         return winOrLose;
     }
 
-    function 
-       
-      const playerSelection = "Paper";
-      const computerSelection = getComputerChoice();
-      console.log(playRound(playerSelection, computerSelection));
+    function game() {
+        let playerWins = 0;
+        let computerWins = 0;
+
+        for (let i = 0; i <= 5; i++) {
+            let playerSelection = prompt("Rock, Paper, or Scissors?")
+            const computerSelection = getComputerChoice();
+
+            playRound(playerSelection, computerSelection)
+
+            if (playRound(playerSelection, computerSelection) === "It is a Tie!") {
+                playerWins++;
+                computerWins++;
+            }
+            else if (playRound(playerSelection, computerSelection) === "You Won!") {
+                playerWins++;
+            }
+            else {
+                computerWins++;
+            }
+
+            console.log("Round " + i + `|| Player Points: ${playerWins} || Computer Points: ${computerWins}`);
+         }
+
+         if (playerWins == computerWins){
+            console.log("It is a Tie!")
+         }
+         else if (playerWins > computerWins) {
+            console.log("You Won!")
+         }
+         else {
+            console.log("You Lost!")
+         }
+    }
+
+    console.log(game());
+    
+      
