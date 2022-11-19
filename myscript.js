@@ -10,7 +10,7 @@ function getComputerChoice(){
     function playRound(playerSelection, computerSelection) {
         playerSelection = playerSelection.toLowerCase();
         let winOrLose = '';
-        
+
         if (playerSelection === computerSelection) {
             winOrLose = "It is a Tie!"
         }
@@ -29,6 +29,8 @@ function getComputerChoice(){
 
         return winOrLose;
     }
+
+    function 
        
       const playerSelection = "Paper";
       const computerSelection = getComputerChoice();
