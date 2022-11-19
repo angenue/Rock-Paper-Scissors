@@ -24,10 +24,13 @@ function playRound(playerSelection, computerSelection) {
 function game() {
   let playerWins = 0;
   let computerWins = 0;
+  let playerSelection = '';
 
   for (let i = 0; i <= 5; i++) {
-    let playerSelection = prompt("Rock, Paper, or Scissors?");
+
+    playerSelection = prompt("Rock, Paper, or Scissors?");
     playerSelection = playerSelection.toLowerCase();
+
     const computerSelection = getComputerChoice();
 
     let results = playRound(playerSelection, computerSelection);
