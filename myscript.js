@@ -1,5 +1,5 @@
 function getComputerChoice(){
-    const computerChoices = ["Rock", "Paper", "Scissors"];
+    const computerChoices = ["rock", "paper", "scissors"];
 
     let randomIndex = Math.floor(Math.random()*computerChoices.length); //get random index
     let randomElement = computerChoices[randomIndex];
@@ -13,13 +13,13 @@ function getComputerChoice(){
         if (playerSelection === computerSelection) {
             return -1;
         }
-        else if (playerSelection === "rock" && computerSelection == "Paper") {
+        else if (playerSelection === "rock" && computerSelection == "paper") {
             return 0;
         }
-        else if (playerSelection === "paper" &&computerSelection == "Scissors"){
+        else if (playerSelection === "paper" &&computerSelection == "scissors"){
             return 0;
         }
-        else if (playerSelection === "scissors" && computerSelection == "Rock"){
+        else if (playerSelection === "scissors" && computerSelection == "rock"){
             return 0;
         }
         else {
@@ -33,7 +33,7 @@ function getComputerChoice(){
 
         for (let i = 0; i <= 5; i++) {
             let playerSelection = prompt("Rock, Paper, or Scissors?")
-            const computerSelection = getComputerChoice();
+            const computerSelection = "rock";
 
             let results = playRound(playerSelection, computerSelection);
             results;
@@ -61,7 +61,7 @@ function getComputerChoice(){
             console.log("You Lost The Game!")
          }
          else {
-            console.log("It is a Tie!")
+            console.log("The Game Was a Tie!")
          }
     }
 
