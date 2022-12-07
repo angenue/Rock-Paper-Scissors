@@ -21,48 +21,51 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-let playerWins = 0, computerWins = 0, rounds=0;
+let playerWins = 0, computerWins = 0, rounds = 0;
 
-function game(playerSelection) { 
+function game(playerSelection) {
   const gameResults = document.querySelector('#results');
+  const roundResults = document.querySelector('#winOrLose');
 
-    const computerSelection = getComputerChoice();
-    let results = playRound(playerSelection, computerSelection);
-    results;
+  const computerSelection = getComputerChoice();
+  let results = playRound(playerSelection, computerSelection);
+  results;
 
-    if (results === 0) {
-      roundResults.textContent ="You Lost This Round";
-      computerWins++;
-      rounds++;
-    } else if (results === 1) {
-      roundResults.textContent ="You Won This Round";
-      playerWins++;
-      rounds++;
-    } else if (results === -1){
-      roundResults.textContent ="It is a Tie!";
-      rounds++;
-    }
+  if (results === 0) {
+    roundResults.textContent = "You Lost This Round";
+    computerWins++;
+    rounds++;
+  } else if (results === 1) {
+    roundResults.textContent = "You Won This Round";
+    playerWins++;
+    rounds++;
+  } else if (results === -1) {
+    roundResults.textContent = "It is a Tie!";
+    rounds++;
+  }
 
-    gameResults.textContent = `Round: ${rounds} || Player Points: ${playerWins} || Computer Points: ${computerWins}`
+  gameResults.textContent = `Round: ${rounds} || Player Points: ${playerWins} || Computer Points: ${computerWins}`
 
-if (playerWins === 5 && computerWins < 5) {
-  roundResults.textContent ="You Won The Game!";
-  computerWins = 0;
-  playerWins = 0;
-  rounds = 0;
-} else if (computerWins ===5 && playerWins < 5) {
-  roundResults.textContent ="You Lost The Game!";
-  computerWins = 0;
-  playerWins = 0;
-  rounds = 0;
-} else if (playerWins === 5 && computerWins === 5) {
-  roundResults.textContent ="The Game Was a Tie!";
-  computerWins = 0;
-  playerWins = 0;
-  rounds = 0;
+  if (playerWins === 5 && computerWins < 5) {
+    roundResults.textContent = "You Won The Game!";
+    computerWins = 0;
+    playerWins = 0;
+    rounds = 0;
+  } else if (computerWins === 5 && playerWins < 5) {
+    roundResults.textContent = "You Lost The Game!";
+    computerWins = 0;
+    playerWins = 0;
+    rounds = 0;
+  } else if (playerWins === 5 && computerWins === 5) {
+    roundResults.textContent = "The Game Was a Tie!";
+    computerWins = 0;
+    playerWins = 0;
+    rounds = 0;
+  }
+
+  gameResults.appendChild(roundResults);
+
 }
-
-} 
 
 
 const buttons = document.querySelectorAll('button');
