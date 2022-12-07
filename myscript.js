@@ -22,7 +22,6 @@ function playRound(playerSelection, computerSelection) {
 }
 
 
-  for (let i = 0; i <= 5; i++) {
 
     playerSelection = prompt("Rock, Paper, or Scissors?");
     playerSelection = playerSelection.toLowerCase();
