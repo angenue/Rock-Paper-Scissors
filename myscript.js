@@ -21,10 +21,6 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-function game() {
-  let playerWins = 0;
-  let computerWins = 0;
-  let playerSelection = '';
 
   for (let i = 0; i <= 5; i++) {
 
