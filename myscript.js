@@ -21,38 +21,60 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
+let playerWins = 0, computerWins = 0, rounds=0;
 
-
-    playerSelection = prompt("Rock, Paper, or Scissors?");
-    playerSelection = playerSelection.toLowerCase();
+function game(playerSelection) { 
+  const gameResults = document.querySelector('#results');
 
     const computerSelection = getComputerChoice();
-
     let results = playRound(playerSelection, computerSelection);
     results;
 
     if (results === 0) {
-      console.log("You Lost This Round");
+      //gameResults.textContent ="You Lost This Round";
       computerWins++;
+      rounds++;
     } else if (results === 1) {
-      console.log("You Won This Round");
+      //gameResults.textContent ="You Won This Round";
       playerWins++;
+      rounds++;
     } else if (results === -1){
-      console.log("It is a Tie!");
+      //gameResults.textContent ="It is a Tie!";
+      rounds++;
     }
 
-    console.log(
-      `Round ${i} || Player Points: ${playerWins} || Computer Points: ${computerWins}`
-    );
-  }
+    gameResults.textContent = `Round: ${rounds} || Player Points: ${playerWins} || Computer Points: ${computerWins}`
 
-  if (playerWins > computerWins) {
-    console.log("You Won The Game!");
-  } else if (playerWins < computerWins) {
-    console.log("You Lost The Game!");
-  } else {
-    console.log("The Game Was a Tie!");
-  }
+if (playerWins === 5 && computerWins < 5) {
+  gameResults.textContent ="You Won The Game!";
+  computerWins = 0;
+  playerWins = 0;
+  rounds = 0;
+} else if (computerWins ===5 && playerWins < 5) {
+  console.log("You Lost The Game!");
+  computerWins = 0;
+  playerWins = 0;
+  rounds = 0;
+} else if (playerWins === 5 && computerWins === 5) {
+  console.log("The Game Was a Tie!");
+  computerWins = 0;
+  playerWins = 0;
+  rounds = 0;
 }
 
-console.log(game());
+} 
+
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+  button.addEventListener('click', () => {
+    console.log(game(button.id));
+  });
+});
+
+
+
+
+
+
+
