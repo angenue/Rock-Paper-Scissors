@@ -31,32 +31,32 @@ function game(playerSelection) {
     results;
 
     if (results === 0) {
-      //gameResults.textContent ="You Lost This Round";
+      roundResults.textContent ="You Lost This Round";
       computerWins++;
       rounds++;
     } else if (results === 1) {
-      //gameResults.textContent ="You Won This Round";
+      roundResults.textContent ="You Won This Round";
       playerWins++;
       rounds++;
     } else if (results === -1){
-      //gameResults.textContent ="It is a Tie!";
+      roundResults.textContent ="It is a Tie!";
       rounds++;
     }
 
     gameResults.textContent = `Round: ${rounds} || Player Points: ${playerWins} || Computer Points: ${computerWins}`
 
 if (playerWins === 5 && computerWins < 5) {
-  gameResults.textContent ="You Won The Game!";
+  roundResults.textContent ="You Won The Game!";
   computerWins = 0;
   playerWins = 0;
   rounds = 0;
 } else if (computerWins ===5 && playerWins < 5) {
-  console.log("You Lost The Game!");
+  roundResults.textContent ="You Lost The Game!";
   computerWins = 0;
   playerWins = 0;
   rounds = 0;
 } else if (playerWins === 5 && computerWins === 5) {
-  console.log("The Game Was a Tie!");
+  roundResults.textContent ="The Game Was a Tie!";
   computerWins = 0;
   playerWins = 0;
   rounds = 0;
