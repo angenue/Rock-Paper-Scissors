@@ -4,3 +4,12 @@ body {
     font-family: arial, sans-serif;
     font-size: 14px;
 }
+
+.rockPaperScissor {
+   display: flex; 
+}
+
+.rockPaperScissor div {
+    display: flex; 
+    flex-direction: column;
+}
