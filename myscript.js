@@ -68,10 +68,10 @@ function game(playerSelection) {
 }
 
 
-const buttons = document.querySelectorAll('button');
-buttons.forEach((button) => {
-  button.addEventListener('click', () => {
-    console.log(game(button.id));
+const buttons = document.querySelectorAll('.playerChoice > button');
+buttons.forEach((playerChoice) => {
+  playerChoice.addEventListener('click', () => {
+    console.log(game(playerChoice.id));
   });
 });
 
