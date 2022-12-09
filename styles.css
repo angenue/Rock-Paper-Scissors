@@ -5,8 +5,13 @@ body {
     font-size: 14px;
 }
 
+.title {
+    font-size: 50px;
+}
+
 .rockPaperScissor {
    display: flex; 
+   gap: 50%;
 }
 
 .rockPaperScissor div {
