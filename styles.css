@@ -46,7 +46,7 @@ button { /* removing background from button */
 }
 
 .playerChoice > button {
-    transition: all .2s ease-in-out;  /*elemt increases in size */
+    transition: all .2s ease-in-out;  /*element increases in size */
     cursor: pointer;
 }
 
