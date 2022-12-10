@@ -28,6 +28,19 @@ function game(playerSelection) {
   const roundResults = document.querySelector('#winOrLose');
 
   const computerSelection = getComputerChoice();
+
+  const computer = document.querySelectorAll('.computerChoice > button');
+  computer.forEach((computerChoice) => {
+    computerChoice.style.transition = 'all .2s ease-in-out';
+    if (computerSelection === computerChoice.className) { //to scale current computer choice
+      computerChoice.style.transform = 'scale(1.1)';
+    }
+    else {
+      computerChoice.style.transform = 'scale(1)'; //de-scale if computer choice something else
+    }
+  });
+
+
   let results = playRound(playerSelection, computerSelection);
   results;
 
@@ -45,6 +58,7 @@ function game(playerSelection) {
   }
 
   gameResults.textContent = `Round: ${rounds} || Player Points: ${playerWins} || Computer Points: ${computerWins}`
+
 
   if (playerWins === 5 && computerWins < 5) {
     roundResults.textContent = "You Won The Game!";
@@ -71,13 +85,7 @@ function game(playerSelection) {
 const buttons = document.querySelectorAll('.playerChoice > button');
 buttons.forEach((playerChoice) => {
   playerChoice.addEventListener('click', () => {
-    console.log(game(playerChoice.className));
-
-    const computer = document.querySelectorAll('.computerChoice > button');
-    if (randomElement === computerChoice.id) {
-    computer.classList.remove(':focus');
-    computer.style.transform = 'scale(1.1)';
-    e.target.classList.add(':focus'); } 
+    game(playerChoice.className);
   });
 });
 
