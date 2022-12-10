@@ -72,6 +72,12 @@ const buttons = document.querySelectorAll('.playerChoice > button');
 buttons.forEach((playerChoice) => {
   playerChoice.addEventListener('click', () => {
     console.log(game(playerChoice.id));
+
+    const computer = document.querySelectorAll('.computerChoice > button');
+    if (randomElement === computerChoice.id) {
+    computer.classList.remove(':focus');
+    computer.style.transform = 'scale(1.1)';
+    e.target.classList.add(':focus'); }
   });
 });
 
