@@ -3,6 +3,7 @@ body {
     background-color: #F6F9FA;
     font-family: arial, sans-serif;
     font-size: 14px;
+    overflow: hidden;
 }
 
 .title {
@@ -36,10 +37,6 @@ button { /* removing background from button */
     border-radius: 100px;
     background: none;
     margin-bottom: 10px;
-}
-
-.results {
-  
 }
 
 .round {
@@ -76,7 +73,7 @@ font-size: 30px;
     color: #F6F9FA;
     font-weight: bold;
 
-    border: 10px solid #75DBE3; 
+    border: 1px solid #75DBE3; 
     background: #75DBE3;
 
     position: relative;
