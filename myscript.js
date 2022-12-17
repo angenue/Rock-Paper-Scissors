@@ -64,19 +64,25 @@ function game(playerSelection) {
 
   if (playerWins === 5 && computerWins < 5) {
     roundResults.textContent = "You Won The Game!";
+    roundResults.style.color = '#601155';
     computerWins = 0;
     playerWins = 0;
     rounds = 0;
   } else if (computerWins === 5 && playerWins < 5) {
     roundResults.textContent = "You Lost The Game!";
+    roundResults.style.color = '#601155';
     computerWins = 0;
     playerWins = 0;
     rounds = 0;
   } else if (playerWins === 5 && computerWins === 5) {
     roundResults.textContent = "The Game Was a Tie!";
+    roundResults.style.color = '#601155';
     computerWins = 0;
     playerWins = 0;
     rounds = 0;
+  }
+  else {
+    roundResults.style.color = '#F6F9FA';
   }
 
   roundNum.textContent = `Round: ${rounds}`
