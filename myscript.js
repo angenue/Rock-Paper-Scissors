@@ -22,8 +22,9 @@ function playRound(playerSelection, computerSelection) {
 }
 
 let playerWins = 0, computerWins = 0, rounds = 0;
-const gameResults = document.querySelector('#results');
-const roundResults = document.querySelector('#winOrLose');
+const roundNum = document.querySelector('.results > .round');
+const gameResults = document.querySelector('.results > .points');
+const roundResults = document.querySelector('.results> .winOrLose');
 
 function game(playerSelection) {
   const computerSelection = getComputerChoice();
@@ -78,18 +79,29 @@ function game(playerSelection) {
     rounds = 0;
   }
 
-  gameResults.textContent = `Round: ${rounds} || Player Points: ${playerWins} || Computer Points: ${computerWins}`
-  gameResults.appendChild(roundResults);
+  roundNum.textContent = `Round: ${rounds}`
+  gameResults.textContent = `Player Points: ${playerWins} \r\n`
+  gameResults.textContent += `Computer Points: ${computerWins}`
+  roundResults.classList.add('winOrLose')
 
 }
 
 
 const buttons = document.querySelectorAll('.playerChoice > button');
 buttons.forEach((playerChoice) => {
-  gameResults.textContent = `Round: ${rounds} || Player Points: ${playerWins} || Computer Points: ${computerWins}`
+  roundNum.textContent = `Round: ${rounds}`
+
+  gameResults.setAttribute('style', 'white-space: pre;'); //for line break
+  gameResults.textContent = `Player Points: ${playerWins} \r\n`
+  gameResults.textContent += `Computer Points: ${computerWins}`
+
+  roundResults.classList.add('round')
+  gameResults.classList.add('points')
+   
   playerChoice.addEventListener('click', () => {
     game(playerChoice.className);
   });
+  //roundResults.classList.add('winOrLose')
 });
 
 
