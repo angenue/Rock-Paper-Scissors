@@ -22,22 +22,22 @@ function playRound(playerSelection, computerSelection) {
 }
 
 let playerWins = 0, computerWins = 0, rounds = 0;
+const gameResults = document.querySelector('#results');
+const roundResults = document.querySelector('#winOrLose');
 
 function game(playerSelection) {
-  const gameResults = document.querySelector('#results');
-  const roundResults = document.querySelector('#winOrLose');
-
   const computerSelection = getComputerChoice();
 
+  /***** html and javascript *****/
   const computer = document.querySelectorAll('.computerChoice > button');
-  
+
   computer.forEach((computerChoice) => {
     if (computerSelection === computerChoice.className) { //to scale current computer choice
+      //computerChoice.classList.add('grow');
        computerChoice.setAttribute('style', 'transform: scale(1.1); border: 1px solid #601155; background: #601155; borderRadius: 100px;') 
     }
     else {
       computerChoice.setAttribute('style', 'transform: scale(1); background: none; border: none;');
-
     }
 });
 
@@ -58,7 +58,7 @@ function game(playerSelection) {
     rounds++;
   }
 
-  gameResults.textContent = `Round: ${rounds} || Player Points: ${playerWins} || Computer Points: ${computerWins}`
+  
 
 
   if (playerWins === 5 && computerWins < 5) {
@@ -78,6 +78,7 @@ function game(playerSelection) {
     rounds = 0;
   }
 
+  gameResults.textContent = `Round: ${rounds} || Player Points: ${playerWins} || Computer Points: ${computerWins}`
   gameResults.appendChild(roundResults);
 
 }
@@ -85,6 +86,7 @@ function game(playerSelection) {
 
 const buttons = document.querySelectorAll('.playerChoice > button');
 buttons.forEach((playerChoice) => {
+  gameResults.textContent = `Round: ${rounds} || Player Points: ${playerWins} || Computer Points: ${computerWins}`
   playerChoice.addEventListener('click', () => {
     game(playerChoice.className);
   });

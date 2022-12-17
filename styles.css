@@ -37,6 +37,27 @@ button { /* removing background from button */
     margin-bottom: 10px;
 }
 
+.results {
+    position: relative;
+    
+    color: #F6F9FA;
+    font-weight: bold;
+
+    border: 1px solid #601155; 
+    background: #601155;
+}
+
+.player {
+    position: relative;
+    
+    color: #F6F9FA;
+    font-weight: bold;
+
+    border: 1px solid #601155; 
+    background: #601155;
+}
+
+
 .playerFont {
     position: relative;
     bottom: 670px;
@@ -69,6 +90,13 @@ button { /* removing background from button */
 }
 
 .playerChoice > button:focus {
+    transform: scale(1.1);
+    border: 1px solid #601155; 
+    background: #601155;
+    border-radius: 100px;
+}
+
+.grow {
     transform: scale(1.1);
     border: 1px solid #601155; 
     background: #601155;
