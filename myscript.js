@@ -30,15 +30,16 @@ function game(playerSelection) {
   const computerSelection = getComputerChoice();
 
   const computer = document.querySelectorAll('.computerChoice > button');
+  
   computer.forEach((computerChoice) => {
-    computerChoice.style.transition = 'all .2s ease-in-out';
     if (computerSelection === computerChoice.className) { //to scale current computer choice
-      computerChoice.style.transform = 'scale(1.1)';
+       computerChoice.setAttribute('style', 'transform: scale(1.1); border: 1px solid #601155; background: #601155; borderRadius: 100px;') 
     }
     else {
-      computerChoice.style.transform = 'scale(1)'; //de-scale if computer choice something else
+      computerChoice.setAttribute('style', 'transform: scale(1); background: none; border: none;');
+
     }
-  });
+});
 
 
   let results = playRound(playerSelection, computerSelection);
