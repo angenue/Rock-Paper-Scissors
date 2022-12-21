@@ -59,9 +59,7 @@ function game(playerSelection) {
     rounds++;
   }
 
-  
-
-
+  //game results. Reset to 0 when player gets 5 points
   if (playerWins === 5 && computerWins < 5) {
     roundResults.textContent = "You Won The Game!";
     roundResults.style.color = '#601155';
@@ -105,9 +103,10 @@ buttons.forEach((playerChoice) => {
   gameResults.classList.add('points')
    
   playerChoice.addEventListener('click', () => {
+
     game(playerChoice.className);
+    
   });
-  //roundResults.classList.add('winOrLose')
 });
 
 
