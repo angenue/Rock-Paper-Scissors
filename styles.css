@@ -53,7 +53,7 @@ button {
     justify-content: center;
     align-items: center;
 
-    bottom: 750px;
+    bottom: 800px;
 }
 
 .instructions {
@@ -207,6 +207,7 @@ button {
     .results {
         display: flex;
         flex-direction: row;
+        bottom: 750px;
     }
 
     .round,
