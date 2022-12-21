@@ -1,9 +1,10 @@
 body {
     margin: 25px;
-    background-color: #F6F9FA;
+    background-color: #f6f9fa;
     font-family: arial, sans-serif;
     font-size: 14px;
-    overflow: hidden;
+    
+    overflow: auto;
 }
 
 .title {
@@ -12,18 +13,20 @@ body {
 }
 
 .rockPaperScissor {
-
-   display: flex; 
-   flex-direction: row;
-    justify-content: center; /* center items vertically, in this case */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* center items vertically, in this case */
     align-items: center;
-   gap: 10%;
+    gap: 30%;
 }
 
 .rockPaperScissor div {
     display: flex;
-    flex-direction: column;  /* make main axis vertical */
+    flex-direction: column;
+    /* make main axis vertical */
     text-align: center;
+    flex-wrap: wrap;
 }
 
 img {
@@ -31,7 +34,8 @@ img {
     transform: rotate(-90deg);
 }
 
-button { /* removing background from button */
+button {
+    /* removing background from button */
     padding: 0;
     border: none;
     border-radius: 100px;
@@ -39,17 +43,38 @@ button { /* removing background from button */
     margin-bottom: 10px;
 }
 
+/******** Round results *********/
+.results {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: relative;
+
+    justify-content: center;
+    align-items: center;
+
+    bottom: 750px;
+}
+
+.instructions {
+    position: relative;
+    bottom: 1368px;
+    text-align: center;
+
+    color: #601155;
+}
+
 .round {
     text-align: center;
-    color: #F6F9FA;
+    color: #f6f9fa;
     font-weight: bold;
 
-    border: 1px solid #F05381; 
-    background: #F05381;
+    border: 1px solid #f05381;
+    background: #f05381;
 
     position: relative;
-bottom: 480px;
-font-size: 30px;
+    bottom: 500px;
+    font-size: 30px;
 }
 
 .points {
@@ -61,8 +86,8 @@ font-size: 30px;
     color: #601155;
     font-size: 18px;
 
-    border: 10px solid #FFDF54; 
-    background: #FFDF54;
+    border: 10px solid #ffdf54;
+    background: #ffdf54;
 
     position: relative;
     bottom: 320px;
@@ -70,28 +95,32 @@ font-size: 30px;
 
 .winOrLose {
     text-align: center;
-    color: #F6F9FA;
+    color: #f6f9fa;
     font-weight: bold;
 
-    border: 1px solid #75DBE3; 
-    background: #75DBE3;
+    border: 1px solid #75dbe3;
+    background: #75dbe3;
+
+    width: 200px;
 
     position: relative;
     bottom: 170px;
 }
 
+/******* End round results ********/
 
 .player {
     position: relative;
-    
-    color: #F6F9FA;
+
+    color: #f6f9fa;
     font-weight: bold;
 
-    border: 1px solid #601155; 
+    border: 1px solid #601155;
     border-radius: 10px;
     background: #601155;
 }
 
+/***** image description *****/
 
 .playerFont {
     position: relative;
@@ -111,31 +140,153 @@ font-size: 30px;
     font-weight: bold;
 }
 
-.playerChoice > button {
-    transition: all .2s ease-in-out;  
+/***** End image description *****/
+
+.playerChoice>button {
+    transition: all 0.2s ease-in-out;
     cursor: pointer;
 }
 
-.computerChoice > button {
-    transition: all .2s ease-in-out;  
+.computerChoice>button {
+    transition: all 0.2s ease-in-out;
 }
 
-.playerChoice > button:hover {
+.playerChoice>button:hover {
     transform: scale(1.1);
-}
-
-.playerChoice > button:focus {
-    transform: scale(1.1);
-    border: 1px solid #601155; 
+    border: 1px solid #601155;
     background: #601155;
     border-radius: 100px;
 }
 
-.grow {
+.playerChoice>button:focus {
     transform: scale(1.1);
-    border: 1px solid #601155; 
+    border: 1px solid #601155;
     background: #601155;
     border-radius: 100px;
 }
 
 
+/**** diff screen sizes ****/
+
+@media only screen and (max-width: 1300px) {
+    .playerFont {
+        position: relative;
+        left: -150px;
+    }
+
+    .computerFont {
+        left: 150px;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .rockPaperScissor {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 12%;
+
+        height: auto;
+        max-width: 100%;
+    }
+
+    .playerFont {
+        position: relative;
+        left: 140px;
+    }
+
+    .computerFont {
+        display: none;
+    }
+
+    .computerChoice {
+        position: relative;
+        bottom: 343px;
+    }
+
+    .results {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .round,
+    .points,
+    .winOrLose {
+        flex-direction: row;
+        position: relative;
+        top: 100px;
+    }
+
+    .round {
+        border-width: 23px;
+    }
+
+    .winOrLose {
+        border-width: 26px;
+        width: 270px;
+        font-size: 23px;
+    }
+
+    .instructions {
+        bottom: 650px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .rockPaperScissor {
+        gap: 20%;
+    }
+
+    img {
+        height: 180px;
+    }
+
+    .playerFont {
+        position: relative;
+        left: 150px;
+
+        bottom: 600px;
+        line-height: 170px;
+    }
+
+    .rockPaperScissor > .playerChoice {
+        position: relative;
+        bottom: 45px;
+    }
+
+    .results {
+        bottom: 700px;
+    }
+
+    .instructions {
+        bottom: 600px;
+    }
+}
+
+@media only screen and (max-width: 520px) {
+    img{
+        height: 120px;
+    }
+
+
+   .playerFont {
+        position: relative;
+        left: 100px;
+
+        bottom: 400px;
+        line-height: 100px;
+    }
+
+    .rockPaperScissor > .computerChoice {
+        position: relative;
+        bottom: 235px;
+    }
+
+    .results {
+        bottom: 500px;
+    }
+
+    .instructions {
+        bottom: 400px;
+    }
+} 
